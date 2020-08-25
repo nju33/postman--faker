@@ -45,6 +45,7 @@ function getRandomOneGeoloniaData(): {
 
 faker.locale = 'ja'
 
+// @ts-expect-error
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function register(prefix: string): void {
   const getEnvironmentName = (suffix: string): string => `${prefix}${suffix}`
