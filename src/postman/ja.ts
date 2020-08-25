@@ -8,8 +8,8 @@ function generateRandomInt(size: number): number {
   return Math.floor(Math.random() * size)
 }
 
-function generateRandomKana(): string {
-  return Array.from(Array(5))
+function generateRandomKana(size: number = 5): string {
+  return Array.from(Array(size))
     .map(() => {
       return KANA[generateRandomInt(KANA.length)]
     })
@@ -44,9 +44,18 @@ function getRandomOneGeoloniaData(): {
 }
 
 faker.locale = 'ja'
-
 const getEnvironmentName = (suffix: string, prefix: string = p): string =>
   `${prefix}${suffix}`
+
+pm.environment.set(
+  getEnvironmentName('FakeCompanyName'),
+  faker.company.companyName()
+)
+pm.environment.set(
+  getEnvironmentName('FakeCompanyNameKanaLike'),
+  generateRandomKana(10)
+)
+
 pm.environment.set(getEnvironmentName('FakeLastName'), faker.name.lastName())
 pm.environment.set(
   getEnvironmentName('FakeLastNameKanaLike'),
