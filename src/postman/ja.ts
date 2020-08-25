@@ -45,79 +45,73 @@ function getRandomOneGeoloniaData(): {
 
 faker.locale = 'ja'
 
-// @ts-expect-error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function register(prefix: string): void {
-  const getEnvironmentName = (suffix: string): string => `${prefix}${suffix}`
-  pm.environment.set(getEnvironmentName('FakeLastName'), faker.name.lastName())
-  pm.environment.set(
-    getEnvironmentName('FakeLastNameKanaLike'),
-    generateRandomKana()
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeFirstName'),
-    faker.name.firstName()
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeFirstNameKanaLike'),
-    generateRandomKana()
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeZipCodeLike'),
-    generateZipCodeLike(false)
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeZipCodeLikeWithHyphen'),
-    generateZipCodeLike(true)
-  )
+const getEnvironmentName = (suffix: string, prefix: string = p): string =>
+  `${prefix}${suffix}`
+pm.environment.set(getEnvironmentName('FakeLastName'), faker.name.lastName())
+pm.environment.set(
+  getEnvironmentName('FakeLastNameKanaLike'),
+  generateRandomKana()
+)
+pm.environment.set(getEnvironmentName('FakeFirstName'), faker.name.firstName())
+pm.environment.set(
+  getEnvironmentName('FakeFirstNameKanaLike'),
+  generateRandomKana()
+)
+pm.environment.set(
+  getEnvironmentName('FakeZipCodeLike'),
+  generateZipCodeLike(false)
+)
+pm.environment.set(
+  getEnvironmentName('FakeZipCodeLikeWithHyphen'),
+  generateZipCodeLike(true)
+)
 
-  const randomOneGeoloniaData = getRandomOneGeoloniaData()
-  pm.environment.set(
-    getEnvironmentName('FakePrefectureCode'),
-    randomOneGeoloniaData['都道府県コード']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakePrefectureName'),
-    randomOneGeoloniaData['都道府県名']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakePrefectureNameKana'),
-    randomOneGeoloniaData['都道府県名カナ']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakePrefectureNameRomaji'),
-    randomOneGeoloniaData['都道府県名ローマ字']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeCityCode'),
-    randomOneGeoloniaData['市区町村コード']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeCityName'),
-    randomOneGeoloniaData['市区町村名']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeCityNameKana'),
-    randomOneGeoloniaData['市区町村名カナ']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeCityNameRomaji'),
-    randomOneGeoloniaData['市区町村名ローマ字']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeStreetName'),
-    randomOneGeoloniaData['大字町丁目名']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeStreetCode'),
-    randomOneGeoloniaData['大字町丁目コード']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeLongitude'),
-    randomOneGeoloniaData['緯度']
-  )
-  pm.environment.set(
-    getEnvironmentName('FakeLatitude'),
-    randomOneGeoloniaData['経度']
-  )
-}
+const randomOneGeoloniaData = getRandomOneGeoloniaData()
+pm.environment.set(
+  getEnvironmentName('FakePrefectureCode'),
+  randomOneGeoloniaData['都道府県コード']
+)
+pm.environment.set(
+  getEnvironmentName('FakePrefectureName'),
+  randomOneGeoloniaData['都道府県名']
+)
+pm.environment.set(
+  getEnvironmentName('FakePrefectureNameKana'),
+  randomOneGeoloniaData['都道府県名カナ']
+)
+pm.environment.set(
+  getEnvironmentName('FakePrefectureNameRomaji'),
+  randomOneGeoloniaData['都道府県名ローマ字']
+)
+pm.environment.set(
+  getEnvironmentName('FakeCityCode'),
+  randomOneGeoloniaData['市区町村コード']
+)
+pm.environment.set(
+  getEnvironmentName('FakeCityName'),
+  randomOneGeoloniaData['市区町村名']
+)
+pm.environment.set(
+  getEnvironmentName('FakeCityNameKana'),
+  randomOneGeoloniaData['市区町村名カナ']
+)
+pm.environment.set(
+  getEnvironmentName('FakeCityNameRomaji'),
+  randomOneGeoloniaData['市区町村名ローマ字']
+)
+pm.environment.set(
+  getEnvironmentName('FakeStreetName'),
+  randomOneGeoloniaData['大字町丁目名']
+)
+pm.environment.set(
+  getEnvironmentName('FakeStreetCode'),
+  randomOneGeoloniaData['大字町丁目コード']
+)
+pm.environment.set(
+  getEnvironmentName('FakeLongitude'),
+  randomOneGeoloniaData['緯度']
+)
+pm.environment.set(
+  getEnvironmentName('FakeLatitude'),
+  randomOneGeoloniaData['経度']
+)
