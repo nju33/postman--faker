@@ -7,7 +7,7 @@ module.exports = (_, args) => {
       ja: path.join(__dirname, 'src/postman/ja.ts')
     },
     output: {
-      path: path.join(__dirname, 'dist/postman'),
+      path: path.join(__dirname, 'public/postman'),
       filename: '[name].js'
     },
     module: {
